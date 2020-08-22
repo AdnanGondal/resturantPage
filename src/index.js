@@ -1,19 +1,20 @@
 
 import {homePage} from "./modules/homePage";
-
+import {nav} from "./modules/nav"
 
 const displayController = (()=>{
    
     let content = document.querySelector("#content");
+    
     const render = ()=>{
     
-    
-    homePage.render(content);
+        nav.render(content);
+        homePage.render(content);
    
     }
    
    return {
-       render,
+       render
    }
     
 })();
