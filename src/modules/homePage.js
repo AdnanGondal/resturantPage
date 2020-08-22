@@ -14,7 +14,7 @@ const homePage = (()=> {
 
 
         homeContent.classList.add("container-fluid","text-center");
-        homeHeading.textContent = "A taste of luxary ..."
+        homeHeading.textContent = "A taste of luxary"
         homeContent.appendChild(homeHeading);
 
         image.src = "img/pai-thai-madinat-jumeirah.jpg";
@@ -39,9 +39,12 @@ const homePage = (()=> {
         content.appendChild(homeContent);
     }
 
+    const remove = (content)=>{
+        content.removeChild(homeContent);
+    }
 
     return {
-        render,
+        render,remove
     }
 
 })();

@@ -24,14 +24,17 @@ const nav = (()=>{
 
         homeBut.classList.add("btn","btn-warning","navbar-btn","rounded-0")
         homeBut.textContent = "Home";
+        homeBut.id = "home-but";
         buttonDiv.appendChild(homeBut);
 
         menuBut.classList.add("btn","btn-default","navbar-btn","rounded-0")
         menuBut.textContent = "Menu";
+        menuBut.id = "menu-but";
         buttonDiv.appendChild(menuBut);
 
         contactBut.classList.add("btn","btn-default","navbar-btn","rounded-0");
         contactBut.textContent = "Contact";
+        contactBut.id = "contact-but"
         buttonDiv.appendChild(contactBut);
 
         buttonDiv.classList.add("navbar-right");
