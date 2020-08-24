@@ -5,3 +5,7 @@ button:hover{
 img{
     width: 100%;
 }
+
+.menu-item{
+    padding-left: 1vw;
+}

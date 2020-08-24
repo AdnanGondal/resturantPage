@@ -22,14 +22,30 @@ const menuPage = (()=>{
     let mainItemColDiv = document.createElement("div");
     let mainPriceColDiv = document.createElement("div");
 
+    let secondRowDiv = document.createElement('div');
+
+    let desertDiv = document.createElement('div');
+    let desertHeading = document.createElement('h4');
+    let desertItemDiv = document.createElement('div');
+    let desertItems = ["Sewiyan","Ghulab Jamun","Falooda","Kheer","Ice Cream"];
+    let desertPrices = ["4.00","1.00","4.00","4.00","2.00"];
+    let desertItemColDiv = document.createElement("div");
+    let desertPriceColDiv = document.createElement("div");
+
+    let drinksDiv = document.createElement('div');
+    let drinksHeading = document.createElement('h4');
+    let drinkItemDiv = document.createElement('div');
+    let drinkItems = ["Soft Drink","Fresh Juice", "Lassi", "Chai"];
+    let drinkPrices = ["£2.00","4.00","4.00","3.00"];
+    let drinkItemColDiv = document.createElement("div");
+    let drinkPriceColDiv = document.createElement("div");
     
+
     const render = (content)=>{
         menuContent.classList.add("container-fluid");
-
         menuHeading.textContent = "Menu";
         menuHeading.classList.add("text-center")
         menuContent.appendChild(menuHeading);
-
 
         firstRowDiv.classList.add("row");
 
@@ -47,8 +63,27 @@ const menuPage = (()=>{
 
         firstRowDiv.appendChild(startersDiv);
         firstRowDiv.appendChild(mainsDiv);
-        menuContent.appendChild(firstRowDiv);
 
+        secondRowDiv.classList.add("row");
+
+        desertDiv.classList.add("col-md-6");
+        desertHeading.textContent = "Deserts";
+        desertDiv.appendChild(desertHeading);
+        addMenuItems(desertItems,desertPrices,desertItemColDiv,desertPriceColDiv,desertItemDiv);
+        desertDiv.appendChild(desertItemDiv);
+
+        drinksDiv.classList.add("col-md-6");
+        drinksHeading.textContent = "Drinks";
+        drinksDiv.appendChild(drinksHeading);
+        addMenuItems(drinkItems,drinkPrices,drinkItemColDiv,drinkPriceColDiv,drinkItemDiv);
+        drinksDiv.appendChild(drinkItemDiv);
+
+        secondRowDiv.appendChild(desertDiv);
+        secondRowDiv.appendChild(drinksDiv);
+
+        
+        menuContent.appendChild(firstRowDiv);
+        menuContent.appendChild(secondRowDiv);
         content.appendChild(menuContent);
     }
 
@@ -62,14 +97,14 @@ const menuPage = (()=>{
 
     const addMenuItems = (itemArray,priceArray,itemCol,priceCol,itemDiv)=>{
         itemDiv.classList.add("row");
-        itemCol.classList.add("col-md-6");
-        priceCol.classList.add("col-md-6")
+        itemCol.classList.add("col-xs-6","w-50","menu-item");
+        priceCol.classList.add("col-xs-6","w-50")
         for (let i=0;i<itemArray.length;i++){
             let item = document.createElement("p");
             let price = document.createElement("p");
 
             item.textContent = (`${itemArray[i]}`);
-            price.textContent = ` ..... £ ${priceArray[i]}`;
+            price.textContent = `........ £${priceArray[i]}`;
 
             itemCol.appendChild(item);
             priceCol.appendChild(price);
