@@ -16,10 +16,12 @@ const displayController = (()=>{
         let contactButton = document.querySelector("#contact-but")
 
         homePage.render(content);
+        menuPage.render(content);
+        menuPage.remove(content);
         
         homeButton.addEventListener('click',()=>{
             homePage.render(content);
-            menuPage.render(content);
+            menuPage.add(content);
             contactPage.render(content);
             menuPage.remove(content);
             contactPage.remove(content);
@@ -29,7 +31,7 @@ const displayController = (()=>{
         menuButton.addEventListener('click',()=>{
         
             homePage.render(content);
-            menuPage.render(content);
+            menuPage.add(content);
             contactPage.render(content);
             homePage.remove(content);
             contactPage.remove(content);
@@ -37,7 +39,7 @@ const displayController = (()=>{
 
         contactButton.addEventListener('click',()=>{
             homePage.render(content);
-            menuPage.render(content);
+            menuPage.add(content);
             contactPage.render(content);
             homePage.remove(content);
             menuPage.remove(content);
