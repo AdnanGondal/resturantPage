@@ -10,12 +10,18 @@ const menuPage = (()=>{
     let starterHeading = document.createElement('h4');
     let starterItemDiv = document.createElement("div");
     let starterItems = ["Kebab","Samosa","Pakora","Tikka"];
-    let starterPrices = [1,1,0.5,2];
+    let starterPrices = ["1.00","1.00","0.50","2.00"];
     let starterItemColDiv = document.createElement("div");
     let starterPriceColDiv = document.createElement("div");
     
     let mainsDiv = document.createElement('div');
-    let mainsHeading = document.createElement('h4')
+    let mainsHeading = document.createElement('h4');
+    let mainItemDiv = document.createElement('div');
+    let mainItems = ["Korma","Biryani","Dhaal","Fish","Burger"];
+    let mainPrices = ["10.00","12.00","8.00","8.00","5.00"];
+    let mainItemColDiv = document.createElement("div");
+    let mainPriceColDiv = document.createElement("div");
+
     
     const render = (content)=>{
         menuContent.classList.add("container-fluid");
@@ -30,27 +36,14 @@ const menuPage = (()=>{
         startersDiv.classList.add("col-md-6")
         starterHeading.textContent = "Starters";
         startersDiv.appendChild(starterHeading);
-        starterItemDiv.classList.add("row");
-        starterItemColDiv.classList.add("col-md-6");
-        starterPriceColDiv.classList.add("col-md-6")
-        
-        for(let i=0;i<4;i++){ 
-            let starterItem=document.createElement('p');
-            let starterPrice = document.createElement('p');
-
-            starterPrice.textContent = `.....£ ${starterPrices[i]}`
-            starterItem.textContent = (`${starterItems[i]}`);
-            
-            starterItemColDiv.appendChild(starterItem);
-            starterPriceColDiv.append(starterPrice);
-        }
-        starterItemDiv.appendChild(starterItemColDiv);
-        starterItemDiv.appendChild(starterPriceColDiv);
+        addMenuItems(starterItems,starterPrices,starterItemColDiv,starterPriceColDiv,starterItemDiv);
         startersDiv.appendChild(starterItemDiv);
 
         mainsDiv.classList.add("col-md-6");
         mainsHeading.textContent = "Mains";
         mainsDiv.appendChild(mainsHeading);
+        addMenuItems(mainItems,mainPrices,mainItemColDiv,mainPriceColDiv,mainItemDiv);
+        mainsDiv.appendChild(mainItemDiv);
 
         firstRowDiv.appendChild(startersDiv);
         firstRowDiv.appendChild(mainsDiv);
@@ -65,6 +58,25 @@ const menuPage = (()=>{
 
     const add = (content)=>{
         content.appendChild(menuContent);
+    }
+
+    const addMenuItems = (itemArray,priceArray,itemCol,priceCol,itemDiv)=>{
+        itemDiv.classList.add("row");
+        itemCol.classList.add("col-md-6");
+        priceCol.classList.add("col-md-6")
+        for (let i=0;i<itemArray.length;i++){
+            let item = document.createElement("p");
+            let price = document.createElement("p");
+
+            item.textContent = (`${itemArray[i]}`);
+            price.textContent = ` ..... £ ${priceArray[i]}`;
+
+            itemCol.appendChild(item);
+            priceCol.appendChild(price);
+
+        }
+        itemDiv.appendChild(itemCol);
+        itemDiv.appendChild(priceCol);
     }
 
     return{
