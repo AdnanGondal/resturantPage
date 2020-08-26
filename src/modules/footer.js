@@ -18,6 +18,10 @@ const footer = (()=>{
     let linksList = document.createElement('ul');
     let linkTitles = ["Home", "Menu","About"];
     let socialsHeading = document.createElement('h5');
+    let socialsIcons = document.createElement('h5');
+    let faceBookIcon = document.createElement('span');
+    let twitterIcon = document.createElement('span');
+    let instaIcon = document.createElement('span');
     
 
     const render = (content)=>{
@@ -39,6 +43,7 @@ const footer = (()=>{
         col1.appendChild(locationInfo);
         contentRow.appendChild(col1);
 
+
         col2.classList.add("col-md-6","mt-md-0","mt-3");
         siteMapHeading.textContent = "Site Map";
         col2.appendChild(siteMapHeading);
@@ -51,8 +56,17 @@ const footer = (()=>{
         }
         linksList.classList.add("list-unstyled");
         col2.appendChild(linksList);
+
         socialsHeading.textContent = "Social Media";
         col2.appendChild(socialsHeading);
+        faceBookIcon.classList.add("fab","fa-facebook","socials-icon");
+        socialsIcons.appendChild(faceBookIcon);
+        twitterIcon.classList.add("fab","fa-twitter","socials-icon");
+        socialsIcons.appendChild(twitterIcon);
+        instaIcon.classList.add("fab","fa-instagram","socials-icon");
+        socialsIcons.appendChild(instaIcon);
+        col2.appendChild(socialsIcons);
+        
         
         contentRow.appendChild(col2);
 
