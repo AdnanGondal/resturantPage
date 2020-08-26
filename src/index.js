@@ -16,16 +16,19 @@ const displayController = (()=>{
         let homeButton = document.querySelector("#home-but");
         let contactButton = document.querySelector("#contact-but")
 
-        footer.render(content);
+        
         homePage.render(content);
         menuPage.render(content);
         menuPage.remove(content);
+        footer.render(content);
         
 
         
         homeButton.addEventListener('click',()=>{
+            footer.remove(content);
             homePage.render(content);
             menuPage.add(content);
+            footer.add(content);
             contactPage.render(content);
             menuPage.remove(content);
             contactPage.remove(content);
@@ -33,18 +36,21 @@ const displayController = (()=>{
         });
 
         menuButton.addEventListener('click',()=>{
-        
+            footer.remove(content);
             homePage.render(content);
             menuPage.add(content);
+            footer.add(content);
             contactPage.render(content);
             homePage.remove(content);
             contactPage.remove(content);
         });
 
         contactButton.addEventListener('click',()=>{
+            footer.remove(content);
             homePage.render(content);
             menuPage.add(content);
             contactPage.render(content);
+            footer.add(content);
             homePage.remove(content);
             menuPage.remove(content);
 

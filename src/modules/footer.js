@@ -16,7 +16,7 @@ const footer = (()=>{
     let col2 = document.createElement('div');
     let siteMapHeading = document.createElement('h5');
     let linksList = document.createElement('ul');
-    let linkTitles = ["Home", "Menu","About"];
+    let linkTitles = ["Home", "Menu","Contact"];
     let socialsHeading = document.createElement('h5');
     let socialsIcons = document.createElement('h5');
     let faceBookIcon = document.createElement('span');
@@ -74,7 +74,15 @@ const footer = (()=>{
         content.appendChild(footerContent);
     }
 
-    return {render}
+    const add = (content)=>{
+        content.appendChild(footerContent);
+    }
+
+    const remove = (content)=> {
+        content.removeChild(footerContent);
+    }
+
+    return {render,add,remove}
 
 })();
 
