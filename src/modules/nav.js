@@ -1,46 +1,78 @@
 
 
+
 const nav = (()=>{
 
     let navContent = document.createElement('nav');
     let navHeading = document.createElement('h1');
+    let navRow = document.createElement("div");
+    let logoDivCol = document.createElement("div");
+    let buttonsRow = document.createElement("div");
+    
+    //ƒlet buttonDiv = document.createElement('div');
+    let buttonsCol = document.createElement('div');
 
-    //let navList = document.createElement('ul');
-    let buttonDiv = document.createElement('div')
+    let homeButCol = document.createElement('div')
     let homeBut = document.createElement('button');
+    let menuButCol = document.createElement('div');
     let menuBut = document.createElement('button');
-    let contactBut = document.createElement('button')
+    let contactButCol = document.createElement('div');
+    let contactBut = document.createElement('button');
     
     
 
     const render = (content)=>{
+
+        navRow.classList.add("row","container-fluid");
+
         navContent.classList.add("navbar","navbar-inverse");
-
-        navHeading.classList.toggle("navbar-text")
-        navHeading.textContent = "MyResturant";
-        navContent.appendChild(navHeading);
-
         
+        logoDivCol.classList.add("col-xs-6","w-50");
 
-        homeBut.classList.add("btn","btn-warning","navbar-btn","rounded-0")
+        navHeading.classList.add("navbar-text")
+        navHeading.textContent = "MyResturant";
+        logoDivCol.appendChild(navHeading);
+
+        navRow.appendChild(logoDivCol);
+        //navRow.appendChild(buttonDivCol);
+        
+        
+        homeBut.classList.add("btn","btn-warning","navbar-btn","rounded-0","btn-block")
         homeBut.textContent = "Home";
-        homeBut.id = "home-but";
-        buttonDiv.appendChild(homeBut);
+        homeBut.id = "home-but"; 
+        buttonsRow.classList.add("row");
 
-        menuBut.classList.add("btn","btn-default","navbar-btn","rounded-0")
+        homeButCol.classList.add("col-xs-4");
+        homeButCol.appendChild(homeBut);
+
+        menuBut.classList.add("btn","btn-default","navbar-btn","rounded-0","btn-block")
         menuBut.textContent = "Menu";
         menuBut.id = "menu-but";
-        buttonDiv.appendChild(menuBut);
+        //buttonDiv.appendChild(menuBut);
 
-        contactBut.classList.add("btn","btn-default","navbar-btn","rounded-0");
+        menuButCol.classList.add("col-xs-4","block");
+        menuButCol.appendChild(menuBut);
+
+        contactBut.classList.add("btn","btn-default","navbar-btn","rounded-0","btn-block");
         contactBut.textContent = "Contact";
         contactBut.id = "contact-but"
-        buttonDiv.appendChild(contactBut);
 
-        buttonDiv.classList.add("navbar-right");
-        buttonDiv.id = "nav-button-container";
-        navContent.appendChild(buttonDiv);
+        contactButCol.classList.add("col-xs-4","block")
+        contactButCol.appendChild(contactBut)
+        
+        //navRow.appendChild(buttonDiv);
 
+        buttonsRow.appendChild(homeButCol);
+        buttonsRow.appendChild(menuButCol);
+        buttonsRow.appendChild(contactButCol);
+        buttonsRow.classList.add("block");
+
+        
+        buttonsCol.classList.add("col-xs-6","w-50");
+        buttonsCol.append(buttonsRow);
+        navRow.appendChild(buttonsCol);
+        navContent.appendChild(navRow);
+        
         content.appendChild(navContent);
 
 

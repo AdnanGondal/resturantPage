@@ -1,8 +1,9 @@
 
 import {homePage} from "./modules/homePage";
-import {nav} from "./modules/nav"
-import {menuPage} from "./modules/menuPage"
-import {contactPage} from "./modules/contactPage"
+import {nav} from "./modules/nav";
+import {menuPage} from "./modules/menuPage";
+import {contactPage} from "./modules/contactPage";
+import {footer} from "./modules/footer";
 
 const displayController = (()=>{
    
@@ -15,9 +16,12 @@ const displayController = (()=>{
         let homeButton = document.querySelector("#home-but");
         let contactButton = document.querySelector("#contact-but")
 
+        footer.render(content);
         homePage.render(content);
         menuPage.render(content);
         menuPage.remove(content);
+        
+
         
         homeButton.addEventListener('click',()=>{
             homePage.render(content);

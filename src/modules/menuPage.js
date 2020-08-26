@@ -3,6 +3,8 @@ const menuPage = (()=>{
 
     let menuContent = document.createElement('div');
     let menuHeading = document.createElement('h2');
+
+    let hr=document.createElement("hr");
     
     let firstRowDiv = document.createElement('div')
 
@@ -36,26 +38,26 @@ const menuPage = (()=>{
     let drinksHeading = document.createElement('h4');
     let drinkItemDiv = document.createElement('div');
     let drinkItems = ["Soft Drink","Fresh Juice", "Lassi", "Chai"];
-    let drinkPrices = ["£2.00","4.00","4.00","3.00"];
+    let drinkPrices = ["2.00","4.00","4.00","3.00"];
     let drinkItemColDiv = document.createElement("div");
     let drinkPriceColDiv = document.createElement("div");
     
 
     const render = (content)=>{
-        menuContent.classList.add("container-fluid");
+        menuContent.classList.add("container-fluid","border","border-warning");
         menuHeading.textContent = "Menu";
-        menuHeading.classList.add("text-center")
+        menuHeading.classList.add("text-center");
         menuContent.appendChild(menuHeading);
 
-        firstRowDiv.classList.add("row");
+        firstRowDiv.classList.add("row","bord");
 
-        startersDiv.classList.add("col-md-6")
+        startersDiv.classList.add("col-md-6","border","border-warning","border-bottom-0");
         starterHeading.textContent = "Starters";
         startersDiv.appendChild(starterHeading);
         addMenuItems(starterItems,starterPrices,starterItemColDiv,starterPriceColDiv,starterItemDiv);
         startersDiv.appendChild(starterItemDiv);
 
-        mainsDiv.classList.add("col-md-6");
+        mainsDiv.classList.add("col-md-6","border","border-warning","border-left-0","border-bottom-0");
         mainsHeading.textContent = "Mains";
         mainsDiv.appendChild(mainsHeading);
         addMenuItems(mainItems,mainPrices,mainItemColDiv,mainPriceColDiv,mainItemDiv);
@@ -66,13 +68,13 @@ const menuPage = (()=>{
 
         secondRowDiv.classList.add("row");
 
-        desertDiv.classList.add("col-md-6");
+        desertDiv.classList.add("col-md-6","border","border-warning","border-bottom-0");
         desertHeading.textContent = "Deserts";
         desertDiv.appendChild(desertHeading);
         addMenuItems(desertItems,desertPrices,desertItemColDiv,desertPriceColDiv,desertItemDiv);
         desertDiv.appendChild(desertItemDiv);
 
-        drinksDiv.classList.add("col-md-6");
+        drinksDiv.classList.add("col-md-6","border","border-warning","border-left-0","border-bottom-0");
         drinksHeading.textContent = "Drinks";
         drinksDiv.appendChild(drinksHeading);
         addMenuItems(drinkItems,drinkPrices,drinkItemColDiv,drinkPriceColDiv,drinkItemDiv);
@@ -112,6 +114,7 @@ const menuPage = (()=>{
         }
         itemDiv.appendChild(itemCol);
         itemDiv.appendChild(priceCol);
+        itemDiv.appendChild(hr);
     }
 
     return{
